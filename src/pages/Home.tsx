@@ -24,7 +24,7 @@ const Home = () => {
     <Box width="100%">
       <Typography>Wellcome user! Feel free to check out this users!</Typography>
       <Button fullWidth variant="contained" color="primary" onClick={logout}>
-        Logogut
+        Log out
       </Button>
       <Stack gap="3rem" mt="2rem">
         {data.map((user) => (

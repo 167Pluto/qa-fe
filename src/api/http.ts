@@ -6,9 +6,6 @@ const http = axios.create({
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
-    // // This was added because Chrome caches 308 redirects
-    // "Cache-Control": "no-cache",
-    // Pragma: "no-cache",
   },
 });
 
@@ -25,20 +22,11 @@ http.interceptors.request.use(
     }
 
     const token = useAuthStore.getState().token;
-    const exparationTime = useAuthStore.getState().tokenExpirationTime;
 
     if (!token) {
       throw new Error(
         "No token provided! This request requires authentication."
       );
-    }
-
-    if (exparationTime) {
-      const now = new Date().getTime();
-      if (now > exparationTime) {
-        useAuthStore.getState().removeUser();
-        throw new Error("Token expired! This request requires authentication.");
-      }
     }
 
     config.headers["Authorization"] = `Bearer ${token ?? ""}`;
