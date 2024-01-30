@@ -7,7 +7,6 @@ const useLogin = (): UseMutationResult<LoginResponse, Error, LoginProps> => {
 
   return useMutation(login, {
     onSuccess(data) {
-      console.log(data);
       saveUser(data.token, Number(data.tokenExpirationTime));
     },
   });
