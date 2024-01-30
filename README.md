@@ -1,6 +1,20 @@
-<b>Installation:</b></br>
-npm i</br>
-<b>Run:</b></br>
-npm run dev</br>
-<b>Environment variables:</b></br>
-PLUTO_API_URL=http://localhost:{port}
+## Installation
+
+```bash
+$ yarn install
+```
+
+## Environment variables
+```bash
+PLUTO_API_URL=http://localhost:3000
+```
+
+## Running the app
+
+```bash
+# development
+$ yarn dev
+
+# build
+$ yarn build
+```
