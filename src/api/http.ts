@@ -45,7 +45,9 @@ http.interceptors.request.use(
 
     return config;
   },
-  (error) => console.error(error)
+  (error) => {
+    throw error;
+  }
 );
 
 http.interceptors.response.use(
